@@ -1,64 +1,66 @@
-XO Game using Threads and Sockets in Java
-Description
-This project is a console-based implementation of the classic Tic-Tac-Toe (XO) game, developed in Java. It is designed using a client-server architecture, allowing two players to compete against each other over a network.
+# XO Game using Threads and Sockets in Java
 
-The server handles:
+## 📄 Description
+This project is a console-based implementation of the classic **Tic-Tac-Toe (XO) game**, developed in **Java**.  
+It utilizes a **client-server architecture**, where two players connect remotely and play against each other.
 
-Game logic and rules enforcement.
+The **server** is responsible for:
+- Managing game logic and validating moves.
+- Coordinating turns between the players.
+- Handling communication between two client applications.
 
-Coordination of player turns.
+Each client is managed in a separate thread, using **Java multithreading**, to ensure simultaneous and efficient gameplay.  
+All communication is performed using **Java Sockets** over TCP.
 
-Communication between the two clients.
+---
 
-Each client (player) is connected through Java sockets, and each is managed in a separate thread, enabling smooth, simultaneous gameplay and interaction.
+## 🚀 Features
+- Classic Tic-Tac-Toe gameplay on the console.
+- Real-time two-player mode over a network.
+- Client-server model using Java Sockets.
+- Separate threads for each player ensuring smooth gameplay.
+- Clear feedback and game state display.
 
-Features
-Console-based Tic-Tac-Toe gameplay.
+---
 
-Supports two players over a TCP network.
+## 💻 Technologies Used
+- Java SE
+- Java Sockets (`java.net`)
+- Java Threads (`java.lang.Thread`)
 
-Uses multithreading for efficient player turn management.
+---
 
-Robust communication handled via Java Sockets.
+## 🔧 How It Works
+1. **Start the Server**
+   - The server waits for two players to connect.
+2. **Launch Clients**
+   - Two separate clients connect to the server.
+3. **Gameplay**
+   - Each player is assigned a thread.
+   - Players take turns sending their moves.
+   - The server checks the move validity, updates the board, and informs both players.
+4. **Game End**
+   - The game concludes when a player wins or the board is full (draw).
 
-Clear separation of client and server responsibilities.
+---
 
-Technologies Used
-Java SE
+## ▶ Getting Started
 
-Java Sockets (java.net package)
+### Requirements
+- Java JDK 8 or above.
+- IDE (IntelliJ, Eclipse) or terminal.
 
-Java Threads (java.lang.Thread)
+### Usage Steps
+1. Compile and run the server:
+   ```bash
+   javac Server.java
+   java Server
 
-How it Works
-The server waits for two players to connect.
 
-Each player runs as a client application and connects to the server.
++---------+         +---------+        +---------+
+| Client1 | <-----> | Server  | <-----> | Client2 |
++---------+         +---------+        +---------+
+      ↕                   ↕                   ↕
+(Thread 1)          Game Logic          (Thread 2)
 
-The server starts a dedicated thread for each player.
 
-The players take turns making their moves.
-
-The server validates moves, updates the game board, and informs both players of the game status (win, draw, ongoing).
-
-The game ends when one player wins or the board is full.
-
-Getting Started
-Requirements
-Java JDK 8 or higher.
-
-IDE or terminal with Java compiler.
-
-How to Run
-Start the Server:
-
-Compile and run the server class.
-
-Start the Clients:
-
-Compile and run the client class on two separate terminals or machines.
-
-Follow the prompts to play the game.
-
-Author
-Abdelkarim El Manchari
