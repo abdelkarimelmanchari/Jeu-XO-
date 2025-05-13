@@ -42,25 +42,3 @@ All communication is performed using **Java Sockets** over TCP.
 4. **Game End**
    - The game concludes when a player wins or the board is full (draw).
 
----
-
-## ▶ Getting Started
-
-### Requirements
-- Java JDK 8 or above.
-- IDE (IntelliJ, Eclipse) or terminal.
-
-### Usage Steps
-1. Compile and run the server:
-   ```bash
-   javac Server.java
-   java Server
-
-
-+---------+         +---------+        +---------+
-| Client1 | <-----> | Server  | <-----> | Client2 |
-+---------+         +---------+        +---------+
-      ↕                   ↕                   ↕
-(Thread 1)          Game Logic          (Thread 2)
-
-
